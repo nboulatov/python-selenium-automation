@@ -31,7 +31,7 @@ time.sleep(3)
 text_to_verify = 'Target account'
 sign_in_text = driver.find_element(By.XPATH, "//span[normalize-space()='Sign into your Target account']").text # “Sign into your Target account” text is shown
 driver.find_element(By.XPATH, "//button[@id='login']") # SignIn button is shown (you can just use driver.find_elemennt() to check for element’s presence, no need to assert here)
-assert text_to_verify in sign_in_text f'Expected {text_to_verify} not in {sign_in_text}'
+assert text_to_verify in sign_in_text, f'Expected {text_to_verify} not in {sign_in_text}'
 
 # [Optional] Build a test case yourself from scratch to search for a product on Target (same as shown in the class), make sure it works and you remember selenium commands.
 driver.get("https://www.target.com/") # 1. Open https://www.target.com/
