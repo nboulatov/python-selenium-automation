@@ -8,10 +8,6 @@ import time
 def open_target_main(context):
   context.driver.get('https://www.target.com/')
 
-# @when('I wait 2 seconds')
-# def wait(context):
-#     time.sleep(2)
-
 @when('I click icon: cart')
 def click_cart(context):
     wait = WebDriverWait(context.driver, 10)
