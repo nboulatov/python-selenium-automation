@@ -35,11 +35,11 @@ def click_on_product(context):
   element_to_scroll_to.click()
 
 @when('I click button: Add to cart')
-def click_sign_in_link(context):
+def click_add_to_cart(context):
   context.driver.find_element(By.XPATH, '(//button[@data-test="orderPickupButton"])[1]').click()
 
 @when('I click button: View cart & check out')
-def click_sign_in_link(context):
+def click_view_cart_check_out(context):
   context.driver.find_element(By.XPATH, '//a[text()="View cart & check out"]').click()
 
 @then('I verify message: Your cart is empty')
