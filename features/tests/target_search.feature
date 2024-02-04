@@ -19,3 +19,28 @@ Feature: Target.com search tests
     When I click button: Add to cart
     When I click button: View cart & check out
     Then I verify number of items in cart: 1 item
+
+  Scenario Outline: User can search for a product on Target.com
+    Given I navigate to site: Target.com
+    When I search: <product>
+    When I click on product: <product>
+    When I click button: Add to cart
+    When I click button: View cart & check out
+    Then I verify number of items in cart: 1 item
+
+    Examples:
+      | product      |
+      | coffee       |
+      | tennis balls |
+
+  Scenario: Verify Target.com's header
+    Given I navigate to site: Target.com
+    Then I verify: header
+
+  Scenario: Verify 5 benefit boxes on Target.com/circle page
+    Given I navigate to site: Target.com/circle
+    Then I verify number of benefits: 5 benefits
+
+  Scenario: Verify UI elements on https://help.target.com/help page
+    Given I navigate to site: https://help.target.com/help
+    Then I verify UI elements on Target Help page
