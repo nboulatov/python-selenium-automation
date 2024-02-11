@@ -94,3 +94,7 @@ app_binaries/
 
 # Screenshots
 *.png
+
+# Special Files
+test.py
+test2.py
