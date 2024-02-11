@@ -44,3 +44,12 @@ Feature: Target.com search tests
   Scenario: Verify UI elements on https://help.target.com/help page
     Given I navigate to site: https://help.target.com/help
     Then I verify UI elements on Target Help page
+
+  Scenario: Verify colors
+    Given I navigate to product: A-81540287
+    Then I verify product's colors
+
+  Scenario: Verify that every product has a name and image after search
+  Given I navigate to site: Target.com
+  When I search: coffee
+  Then I verify that every product has a name and image
