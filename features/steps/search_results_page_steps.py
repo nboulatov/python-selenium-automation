@@ -37,12 +37,8 @@ def click_view_cart_check_out(context):
 
 @then('I verify that every product has a name and image')
 def verify_products_name_image(context):
-    element_to_scroll_to = context.wait.until(
-        EC.element_to_be_clickable((By.XPATH, '(//div[@data-test="@web/site-top-of-funnel/ProductCardWrapper"])[1]')))
-    context.driver.execute_script("arguments[0].scrollIntoView();", element_to_scroll_to)
-
     total_height = int(context.driver.execute_script("return document.body.scrollHeight"))
-    for i in range(1, total_height, 5):
+    for i in range(1, total_height, 3):
         context.driver.execute_script(f"window.scrollTo(0, {i});")
 
     all_titles = context.driver.find_elements(*ALL_PRODUCT_TITLES)
