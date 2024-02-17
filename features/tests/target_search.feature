@@ -20,6 +20,12 @@ Feature: Target.com search tests
     When I click button: View cart & check out
     Then I verify number of items in cart: 1 item
 
+  Scenario: User can search for a specific product on Target.com
+    Given I navigate to site: Target.com
+    When I search: coffee
+    Then I see search results for: coffee
+    Then I see page URL contains text: coffee
+
   Scenario Outline: User can search for a product on Target.com
     Given I navigate to site: Target.com
     When I search: <product>
@@ -47,9 +53,9 @@ Feature: Target.com search tests
 
   Scenario: Verify colors
     Given I navigate to product: A-81540287
-    Then I verify product's colors
+    Then I verify product colors
 
   Scenario: Verify that every product has a name and image after search
-  Given I navigate to site: Target.com
-  When I search: coffee
-  Then I verify that every product has a name and image
+    Given I navigate to site: Target.com
+    When I search: coffee
+    Then I verify that every product has a name and image
