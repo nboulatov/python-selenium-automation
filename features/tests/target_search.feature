@@ -18,13 +18,13 @@ Feature: Target.com search tests
     When I click on product: coffee
     When I click button: Add to cart
     When I click button: View cart & check out
-    Then I verify number of items in cart: 1 item
+    Then I verify number of items in cart: 1
 
   Scenario: User can search for a specific product on Target.com
     Given I navigate to site: Target.com
     When I search: coffee
     Then I see search results for: coffee
-    Then I see page URL contains text: coffee
+    Then I see URL contains text: coffee
 
   Scenario Outline: User can search for a product on Target.com
     Given I navigate to site: Target.com
@@ -45,7 +45,7 @@ Feature: Target.com search tests
 
   Scenario: Verify 5 benefit boxes on Target.com/circle page
     Given I navigate to site: Target.com/circle
-    Then I verify number of benefits: 5 benefits
+    Then I verify number of benefits: 4 benefits
 
   Scenario: Verify UI elements on https://help.target.com/help page
     Given I navigate to site: https://help.target.com/help

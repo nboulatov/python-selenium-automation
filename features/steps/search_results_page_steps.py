@@ -25,7 +25,7 @@ def verify_search_results(context, product):
     context.app.search_results_page.verify_search_results(context, product)
 
 
-@then('I see page URL contains text: {expected_text_in_url}')
+@then('I see URL contains text: {expected_text_in_url}')
 def verify_search_results_page_url(context, expected_text_in_url):
     context.app.search_results_page.verify_search_results_page_url(expected_text_in_url)
 

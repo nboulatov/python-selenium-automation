@@ -5,7 +5,7 @@ from selenium.webdriver.support import  expected_conditions as EC
 
 @given('I navigate to product: {product}')
 def open_product(context, product):
-    context.app.product_details_page.open_product(context, product)
+    context.app.product_details_page.open_product(product)
 
 
 @then('I verify product colors')

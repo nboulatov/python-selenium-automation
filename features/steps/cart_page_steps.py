@@ -7,6 +7,6 @@ from selenium.webdriver.support import  expected_conditions as EC
 def verify_empty_cart(context):
     context.app.cart_page.verify_empty_cart(context)
 
-@then('I verify number of items in cart: 1 item')
-def verify_number_of_items_in_cart(context):
-    context.app.cart_page.verify_number_of_items_in_cart(context)
+@then('I verify number of items in cart: {items}')
+def verify_number_of_items_in_cart(context, items):
+    context.app.cart_page.verify_number_of_items_in_cart(context, items)
