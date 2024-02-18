@@ -3,14 +3,26 @@ Feature: Target.com search tests
 
   Scenario: User can see empty cart message
     Given I navigate to site: Target.com
-    When I click icon: cart
+    When I click button: cart
     Then I verify message: Your cart is empty
 
-  Scenario: Logged out user can access sign in page
+  Scenario: User can access sign in page
     Given I navigate to site: Target.com
     When I click button: Sign in
     When I click link: Sign in
     Then I verify message: Sign into your Target account
+
+  Scenario: User is able to login to a Target account
+    Given I navigate to site: Target.com
+    When I click button: Sign in
+    When I click link: Sign in
+    When I input username: poveto9067@fkcod.com
+    When I input password: targetTarget1!
+    When I click button: Sign in with password
+#    When I click link: Skip
+#    When I click button: Maybe later
+    Then I verify login for: Target
+
 
   Scenario: User can see that an item has been added to the cart on the cart page
     Given I navigate to site: Target.com
@@ -20,13 +32,13 @@ Feature: Target.com search tests
     When I click button: View cart & check out
     Then I verify number of items in cart: 1
 
-  Scenario: User can search for a specific product on Target.com
+  Scenario: User can search for a specific product
     Given I navigate to site: Target.com
     When I search: coffee
     Then I see search results for: coffee
     Then I see URL contains text: coffee
 
-  Scenario Outline: User can search for a product on Target.com
+  Scenario Outline: User can search for a product
     Given I navigate to site: Target.com
     When I search: <product>
     When I click on product: <product>
@@ -51,11 +63,11 @@ Feature: Target.com search tests
     Given I navigate to site: https://help.target.com/help
     Then I verify UI elements on Target Help page
 
-  Scenario: Verify colors
+  Scenario: Verify product's colors
     Given I navigate to product: A-81540287
     Then I verify product colors
 
-  Scenario: Verify that every product has a name and image after search
+  Scenario: Verify that every product has a name and image
     Given I navigate to site: Target.com
     When I search: coffee
     Then I verify that every product has a name and image

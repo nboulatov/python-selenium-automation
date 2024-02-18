@@ -23,10 +23,14 @@ class Page():
         self.driver.find_element(*locator).click()
 
     def input_text(self, text, *locator):
-        self.driver.find_element(*locator).send_keys(text)
+        self.wait.until(
+            EC.visibility_of_element_located(locator),
+            message=f"Element via {locator} is not visible").send_keys(text)
 
     def verify_text(self, expected_text, *locator):
-        actual_text = self.wait.until(EC.visibility_of_element_located(locator), message=f"Element via {locator} is not visible").text
+        actual_text = self.wait.until(
+            EC.visibility_of_element_located(locator),
+            message=f"Element via {locator} is not visible").text
         assert expected_text in actual_text, f"\nExpected: {expected_text}.\nActual: {actual_text}."
 
     def verify_url(self, expected_text_in_url):
