@@ -23,7 +23,6 @@ Feature: Target.com search tests
 #    When I click button: Maybe later
     Then I verify login for: Target
 
-
   Scenario: User can see that an item has been added to the cart on the cart page
     Given I navigate to site: Target.com
     When I search: coffee
@@ -38,7 +37,7 @@ Feature: Target.com search tests
     Then I see search results for: coffee
     Then I see URL contains text: coffee
 
-  Scenario Outline: User can search for a product
+  Scenario Outline: User adds the first searched product to the cart
     Given I navigate to site: Target.com
     When I search: <product>
     When I click on product: <product>
@@ -71,3 +70,15 @@ Feature: Target.com search tests
     Given I navigate to site: Target.com
     When I search: coffee
     Then I verify that every product has a name and image
+
+  Scenario: User can open and close Terms and Conditions from sign in page
+    Given I navigate to site: Target.com
+    When I click button: Sign in
+    When I click link: Sign in
+    When I store tab: original
+    When I click link: Target terms and conditions
+    When I switch to tab: new
+    Then I see URL contains text: terms-conditions
+    When I close tab: current
+    When I switch to tab: original
+    Then I see URL contains text: login?
