@@ -6,7 +6,7 @@ def open_target(context):
 
 @when('I click button: cart')
 def click_cart_button(context):
-    context.app.header.click_cart_button(context)
+    context.app.header.click_cart_button()
 
 @when('I click button: Sign in')
 def click_sign_in_button(context):
@@ -18,11 +18,11 @@ def click_sign_in_link(context):
 
 @when('I search: {product}')
 def search_product(context, product):
-    context.app.header.search_product()
+    context.app.header.search_product(product)
 
 @then('I verify: header')
 def verify_header(context):
-    context.app.header.verify_header(context)
+    context.app.header.verify_header()
 
 @then('I verify login for: {username}')
 def verify_login(context, username):

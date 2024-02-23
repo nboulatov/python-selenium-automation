@@ -11,23 +11,23 @@ class SignInPage(Page):
     MAYBE_LATER_BUTTON = (By.XPATH, "//button[text()='Maybe later']")
     TARGET_TERMS_AND_CONDITIONS = (By.XPATH, "//a[text()='Target terms and conditions']")
 
-    def verify_sign_in_page(self, context):
+    def verify_sign_in_page(self):
         self.wait_for_clickable_element_and_click(*self.SIGN_IN_TEXT)
 
-    def input_username(self, username, context):
+    def input_username(self, username):
         self.input_text(username, *self.USERNAME_FIELD)
 
-    def input_password(self, password, context):
+    def input_password(self, password):
         self.input_text(password, *self.PASSWORD_FIELD)
 
-    def click_sign_in_with_password_button(self, context):
+    def click_sign_in_with_password_button(self):
         self.wait_for_clickable_element_and_click(*self.LOGIN_BUTTON)
 
-    def click_target_terms_and_conditions_link(self, context):
+    def click_target_terms_and_conditions_link(self):
         self.wait_for_clickable_element_and_click(*self.TARGET_TERMS_AND_CONDITIONS)
 
-    def click_skip_link(self, context):
+    def click_skip_link(self):
         self.wait_for_clickable_element_and_click(*self.SKIP_LINK)
 
-    def click_maybe_later_button(self, context):
+    def click_maybe_later_button(self):
         self.wait_for_clickable_element_and_click(*self.SKIP_LINK)

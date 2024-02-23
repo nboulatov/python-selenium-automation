@@ -11,18 +11,18 @@ class Header(Page):
     HEADER = (By.CSS_SELECTOR, '[class*="UtilityHeaderWrapper"]')
     USER_GREETING = (By.XPATH, "//a[@data-test='@web/AccountLink']/span[contains(text(), 'Hi')]")
 
-    def search_product(self):
-        self.input_text('coffee',*self.SEARCH_FIELD)
+    def search_product(self, product):
+        self.input_text(product,*self.SEARCH_FIELD)
         self.click(*self.SEARCH_ICON)
 
-    def click_cart_button(self, context):
+    def click_cart_button(self):
         self.wait_for_clickable_element_and_click(*self.CART_ICON)
 
     def click_sign_in_button(self):
         self.click(*self.SIGN_IN_BUTTON)
 
-    def verify_header(self, context):
-        header = context.wait.until(EC.visibility_of_element_located((self.HEADER)), message='Header not found').text
+    def verify_header(self):
+        self.wait.until(EC.visibility_of_element_located((self.HEADER)), message='Header not found')
 
     def verify_login(self, context, username):
         self.verify_text(username, *self.USER_GREETING)

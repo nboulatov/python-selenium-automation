@@ -9,4 +9,4 @@ def open_target_circle(context):
 
 @then('I verify number of benefits: {expected_amount} benefits')
 def verify_circle_benefits(context, expected_amount):
-    context.app.target_circle_page.verify_circle_benefits(context, expected_amount)
+    context.app.target_circle_page.verify_circle_benefits(expected_amount)

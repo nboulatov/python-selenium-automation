@@ -42,13 +42,13 @@ class Page():
             EC.visibility_of_element_located((locator)), message='Button not found: Add to cart.')
         self.driver.execute_script("arguments[0].scrollIntoView();", element_to_scroll_to)
 
-    def store_original_tab(self, context):
-        context.original_window = context.driver.current_window_handle
-        print(f"Original tab: {context.original_window}")
+    def store_original_tab(self):
+        original_window = self.driver.current_window_handle
+        print(f"Original tab: {original_window}")
+        return original_window
 
     def switch_to_original_tab(self, original_tab):
-        all_tabs = self.driver.window_handles
-        self.driver.switch_to.window(all_tabs[0])
+        self.driver.switch_to.window(original_tab)
 
     def switch_to_new_tab(self):
         self.wait.until(EC.new_window_is_opened)

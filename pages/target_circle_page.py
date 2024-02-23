@@ -7,7 +7,7 @@ class TargetCirclePage(Page):
     def open_target_circle(self):
         self.open('https://www.target.com/circle')
 
-    def verify_circle_benefits(self, context, expected_amount):
-        number_of_benefits = context.driver.find_elements(*self.CIRCLE_BENEFITS)
+    def verify_circle_benefits(self, expected_amount):
+        number_of_benefits = self.driver.find_elements(*self.CIRCLE_BENEFITS)
         assert len(number_of_benefits) == int(expected_amount),\
             f'\nExpected: {expected_amount}.\nActual: {len(number_of_benefits)}.'

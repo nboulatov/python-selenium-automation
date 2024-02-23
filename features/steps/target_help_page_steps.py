@@ -8,4 +8,4 @@ def open_target_help(context):
 
 @then('I verify UI elements on Target Help page')
 def verify_target_help_ui(context):
-    context.app.target_help_page.verify_target_help_ui(context)
+    context.app.target_help_page.verify_target_help_ui()

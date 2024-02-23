@@ -25,8 +25,8 @@ Feature: Target.com search tests
 
   Scenario: User can see that an item has been added to the cart on the cart page
     Given I navigate to site: Target.com
-    When I search: coffee
-    When I click on product: coffee
+    When I search: banana
+    When I click on product: banana
     When I click button: Add to cart
     When I click button: View cart & check out
     Then I verify number of items in cart: 1
@@ -56,7 +56,7 @@ Feature: Target.com search tests
 
   Scenario: Verify 5 benefit boxes on Target.com/circle page
     Given I navigate to site: Target.com/circle
-    Then I verify number of benefits: 4 benefits
+    Then I verify number of benefits: 5 benefits
 
   Scenario: Verify UI elements on https://help.target.com/help page
     Given I navigate to site: https://help.target.com/help

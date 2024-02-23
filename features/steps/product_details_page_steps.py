@@ -10,4 +10,4 @@ def open_product(context, product):
 
 @then('I verify product colors')
 def verify_product_colors(context):
-    context.app.product_details_page.verify_product_colors(context)
+    context.app.product_details_page.verify_product_colors()

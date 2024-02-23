@@ -9,14 +9,14 @@ class ProductDetailsPage(Page):
     def open_product(self, product):
         self.open(f'https://www.target.com/p/{product}')
 
-    def verify_product_colors(self, context):
-        colors = context.driver.find_elements(*self.PRODUCT_COLORS)
+    def verify_product_colors(self):
+        colors = self.driver.find_elements(*self.PRODUCT_COLORS)
         expected_colors = [color.get_attribute("alt") for color in colors]
         print(expected_colors)
         actual_colors = []
         for color in colors:
             color.click()
-            selected_color = context.wait.until(EC.visibility_of_element_located(self.SELECTED_COLOR)).text.split('\n')[1]
+            selected_color = self.wait.until(EC.visibility_of_element_located(self.SELECTED_COLOR)).text.split('\n')[1]
             actual_colors.append(selected_color)
         assert expected_colors == actual_colors, f'\nExpected: {expected_colors}.\nActual: {actual_colors}.'
 
