@@ -31,10 +31,10 @@ class Header(BasePage):
         actions.move_to_element(self.find_element(*self.SIGN_IN_BUTTON)).perform()
 
     def verify_chevron_arrow(self):
-        self.wait.until(EC.visibility_of_element_located((self.HEADER)), message='Header not found')
+        self.wait.until(EC.visibility_of_element_located((self.CHEVRON_ARROW)), message='Chevron arrow is not visible')
 
     def verify_header(self):
-        self.wait.until(EC.visibility_of_element_located((self.CHEVRON_ARROW)), message='Chevron arrow is not visible')
+        self.wait.until(EC.visibility_of_element_located((self.HEADER)), message='Header not visible')
 
     def verify_login(self, username):
         self.verify_text(username, *self.USER_GREETING)
