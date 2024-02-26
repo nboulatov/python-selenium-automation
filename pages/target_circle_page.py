@@ -1,8 +1,8 @@
-from pages.base_page import Page
+from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 
 
-class TargetCirclePage(Page):
+class TargetCirclePage(BasePage):
     CIRCLE_BENEFITS = (By.CSS_SELECTOR, "[class*='BenefitsGrid'] li")
     def open_target_circle(self):
         self.open('https://www.target.com/circle')

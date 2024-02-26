@@ -25,7 +25,7 @@ def click_target_terms_and_conditions_link(context):
 def click_maybe_later_button(context):
     context.app.sign_in_page.click_maybe_later_button()
 
-@then('I verify message: Sign into your Target account')
-def verify_sign_in_page(context):
-    context.app.sign_in_page.verify_sign_in_page()
+@then('I verify message: {message}')
+def verify_sign_in_page(context, message):
+    context.app.sign_in_page.verify_sign_in_page(message)
 

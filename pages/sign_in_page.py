@@ -1,9 +1,15 @@
-from pages.base_page import Page
+import time
+
+from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import  expected_conditions as EC
 
-class SignInPage(Page):
-    SIGN_IN_TEXT = (By.XPATH, '//span[contains(text(), "Sign into your Target account")]')
+class SignInPage(BasePage):
+    LOCATORS = {
+        "Sign into your Target account": (By.XPATH, '//span[contains(text(), "Sign into your Target account")]'),
+        "We can't find your account": (By.XPATH, '//div[@data-test="authAlertDisplay"]//div[text()="We can\'t find your account."]'),
+        "That password is incorrect": (By.XPATH, "//div[@data-test='authAlertDisplay']//div[text()='That password is incorrect.']"),
+    }
     USERNAME_FIELD = (By.CSS_SELECTOR, '#username')
     PASSWORD_FIELD = (By.CSS_SELECTOR, '#password')
     LOGIN_BUTTON = (By.CSS_SELECTOR, '#login')
@@ -11,8 +17,9 @@ class SignInPage(Page):
     MAYBE_LATER_BUTTON = (By.XPATH, "//button[text()='Maybe later']")
     TARGET_TERMS_AND_CONDITIONS = (By.XPATH, "//a[text()='Target terms and conditions']")
 
-    def verify_sign_in_page(self):
-        self.wait_for_clickable_element_and_click(*self.SIGN_IN_TEXT)
+    def verify_sign_in_page(self, message):
+        locator = self.LOCATORS.get(message)
+        self.wait_for_visible_element(*locator)
 
     def input_username(self, username):
         self.input_text(username, *self.USERNAME_FIELD)

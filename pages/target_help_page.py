@@ -1,8 +1,8 @@
-from pages.base_page import Page
+from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 
 
-class TargetHelpPage(Page):
+class TargetHelpPage(BasePage):
 
     def open_target_help(self):
         self.open('https://help.target.com/help')

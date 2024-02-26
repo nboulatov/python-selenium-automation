@@ -1,9 +1,9 @@
-from pages.base_page import Page
+from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import  expected_conditions as EC
 
 
-class SearchResultsPage(Page):
+class SearchResultsPage(BasePage):
     SEARCH_RESULTS_HEADER = (By.XPATH, "//div[@data-test='resultsHeading']")
     VIEW_CART_AND_CHECK_OUT_BUTTON = (By.XPATH, '//a[text()="View cart & check out"]')
     ALL_PRODUCT_IMAGES = (By.XPATH, "//section[contains(@class, 'StyledRowWrapper')]//*/h3//picture[@data-test='@web/ProductCard/ProductCardImage/primary']/img")
@@ -37,8 +37,9 @@ class SearchResultsPage(Page):
         all_images = self.driver.find_elements(*self.ALL_PRODUCT_IMAGES)
         expected_titles = [title.get_attribute("title") for title in all_titles]
         expected_images = [image.get_attribute("alt") for image in all_images]
-        assert len(expected_titles) == len(
-            expected_images), f'Expected {len(expected_titles)} titles, got {len(expected_images)} images'
-        assert expected_titles == expected_images, f'\nExpected: {expected_titles}.\nActual: {expected_images}.'
+        assert len(expected_titles) == len(expected_images),\
+            f'\nExpected: {len(expected_titles)}.\nActual: {len(expected_images)}.'
+        assert expected_titles == expected_images,\
+            f'\nExpected: {expected_titles}.\nActual: {expected_images}.'
 
 

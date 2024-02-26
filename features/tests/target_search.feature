@@ -23,6 +23,20 @@ Feature: Target.com search tests
 #    When I click button: Maybe later
     Then I verify login for: Target
 
+  Scenario Outline: User is unable to login to a Target account given invalid credentials
+    Given I navigate to site: Target.com
+    When I click button: Sign in
+    When I click link: Sign in
+    When I input username: <username>
+    When I input password: <password>
+    When I click button: Sign in with password
+    Then I verify message: <message>
+
+    Examples:
+      | username             | password       | message                    |
+      | poveto906@fkcod.com  | targetTarget1! | We can't find your account |
+      | poveto9067@fkcod.com | targetTarget1  | That password is incorrect |
+
   Scenario: User can see that an item has been added to the cart on the cart page
     Given I navigate to site: Target.com
     When I search: banana
@@ -82,3 +96,8 @@ Feature: Target.com search tests
     When I close tab: current
     When I switch to tab: original
     Then I see URL contains text: login?
+
+  Scenario: User is able to see a chevron arrow
+    Given I navigate to site: Target.com
+    When I hover over button: Sign in
+    Then I verify visibility of: chevron arrow

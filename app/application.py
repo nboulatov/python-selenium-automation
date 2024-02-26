@@ -1,4 +1,4 @@
-from pages.base_page import Page
+from pages.base_page import BasePage
 from pages.header import Header
 from pages.main_page import MainPage
 from pages.search_results_page import SearchResultsPage
@@ -12,7 +12,7 @@ from pages.product_details_page import ProductDetailsPage
 class Application:
 
     def __init__(self, driver):
-        self.page = Page(driver)
+        self.base_page = BasePage(driver)
         self.header = Header(driver)
         self.main_page = MainPage(driver)
         self.target_circle_page = TargetCirclePage(driver)

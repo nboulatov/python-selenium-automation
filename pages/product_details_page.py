@@ -1,8 +1,8 @@
-from pages.base_page import Page
+from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import  expected_conditions as EC
 
-class ProductDetailsPage(Page):
+class ProductDetailsPage(BasePage):
     PRODUCT_COLORS = (By.CSS_SELECTOR, ".children img[alt='Black'], .children img[alt='Deep Olive'], .children img[alt='White']")
     SELECTED_COLOR = (By.CSS_SELECTOR, "[class*='StyledVariationSelectorImage'] [class*='CellVariationHeaderWrapper']")
 
